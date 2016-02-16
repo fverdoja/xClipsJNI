@@ -4,56 +4,57 @@
  */
 package xclipsjni;
 
-import CLIPSJNI.Router;
-
 /**
  *
  * @author piovel
  */
-class RouterDialog extends Router {
+class RouterDialog extends RouterImpl {
 
-	private String stdout;
-	private boolean rec;
+    private String stdout;
+    private boolean rec;
 
-	public RouterDialog(String name) {
-		super(name, 100);
-		stdout = "";
-		rec = false;
-	}
+    public RouterDialog(String name) {
+        super(name, 100);
+        stdout = "";
+        rec = false;
+    }
 
-	/**********/
-	/* query: */
-	/**********/
-	@Override
-	public synchronized boolean query(
-			  String routerName) {
-		if (routerName.equals("wdisplay")) {
-			return true;
-		}
+    /**
+     * *******
+     */
+    /* query: */
+    /**
+     * *******
+     */
+    @Override
+    public synchronized boolean query(String routerName) {
+        return routerName.equals("wdisplay");
+    }
 
-		return false;
-	}
+    /**
+     * *******
+     */
+    /* print: */
+    /**
+     * *******
+     */
+    @Override
+    public synchronized void print(String routerName, String printString) {
+        if (rec) {
+            stdout = stdout + printString;
+        }
+    }
 
-	/**********/
-	/* print: */
-	/**********/
-	@Override
-	public synchronized void print(String routerName, String printString) {
-		if (rec) {
-			stdout = stdout + printString;
-		}
-	}
+    public synchronized String getStdout() {
+        return stdout;
+    }
 
-	public synchronized String getStdout() {
-		return stdout;
-	}
+    public synchronized void startRec() {
+        stdout = "";
+        rec = true;
+    }
 
-	public synchronized void startRec() {
-		stdout = "";
-		rec = true;
-	}
-
-	public synchronized void stopRec() {
-		rec = false;
-	}
+    public synchronized void stopRec() {
+        rec = false;
+    }
 }
