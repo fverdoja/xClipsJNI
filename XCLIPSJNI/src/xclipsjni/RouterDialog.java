@@ -1,12 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package xclipsjni;
 
-/**
+/**Estensione della classe RouterImpl
  *
- * @author piovel
+ * @author Piovesan Luca, Verdoja Francesco
  */
 class RouterDialog extends RouterImpl {
 
@@ -19,25 +15,11 @@ class RouterDialog extends RouterImpl {
         rec = false;
     }
 
-    /**
-     * *******
-     */
-    /* query: */
-    /**
-     * *******
-     */
     @Override
     public synchronized boolean query(String routerName) {
         return routerName.equals("wdisplay");
     }
 
-    /**
-     * *******
-     */
-    /* print: */
-    /**
-     * *******
-     */
     @Override
     public synchronized void print(String routerName, String printString) {
         if (rec) {

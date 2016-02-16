@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package xclipsjni;
 
 import net.sf.clipsrules.jni.Router;
 
-/**
+/**L'implementazione della classe Router
  *
- * @author fra
+ * @author Piovesan Luca, Verdoja Francesco
  */
 public class RouterImpl implements Router {
 
